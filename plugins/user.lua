@@ -23,4 +23,17 @@ return {
     config = function() require("nvim-ts-autotag").setup {} end,
     event = "VeryLazy",
   },
+  {
+    "shaunsingh/nord.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("nord").set()
+      vim.api.nvim_command "colorscheme nord"
+      vim.cmd [[colorscheme nord]]
+      vim.g.nord_bold = false
+      vim.g.nord_borders = true
+      vim.opt.background = "dark"
+    end,
+  },
 }
