@@ -1,15 +1,15 @@
 -- Checking if the system is in light or dark mode
--- vim.fn.system "defaults read -g AppleInterfaceStyle"
--- local theme
---
--- if vim.v.shell_error ~= 0 then
---   -- theme = "catppuccin-latte" -- LIGHT Theme
---   theme = "tokyonight-day" -- LIGHT Theme
---   vim.opt.background = "light"
--- else
---   theme = "tokyonight" -- DARK Theme
---   vim.opt.background = "dark"
--- end
+vim.fn.system "defaults read -g AppleInterfaceStyle"
+local theme
+
+if vim.v.shell_error ~= 0 then
+  -- theme = "catppuccin-latte" -- LIGHT Theme
+  theme = "tokyonight-day" -- LIGHT Theme
+  vim.opt.background = "light"
+else
+  theme = "nord" -- DARK Theme
+  vim.opt.background = "dark"
+end
 
 return {
   -- Configure AstroNvim updates
@@ -29,8 +29,8 @@ return {
       --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
     },
   },
-  -- colorscheme = theme,
-  colorscheme = "nord",
+  colorscheme = theme,
+  -- colorscheme = "nord",
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
